@@ -1,0 +1,20 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>Example TLD</short-name>
+
+    <tag>
+        <name>flightsTable</name>
+        <body-content>scriptless</body-content>
+        <tag-class>MVC.View.CustomTags.TableTagHandler</tag-class>
+        <attribute>
+
+            <name>cityFrom</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>cityTo</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

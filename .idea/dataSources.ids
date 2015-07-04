@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - low_cost_airlines@localhost" uuid="7762775d-bba5-48a9-a326-d242059d2c23">
+    <database-info product="MySQL" version="5.6.22" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="low_cost_airlines"/>
+    <table name="addresses" schema="" catalog="low_cost_airlines" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="country" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="postalCode" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="street" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="building" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="addressID" table="airports" schema="" catalog="low_cost_airlines" columns="addressID"/>
+    </table>
+    <table name="airports" schema="" catalog="low_cost_airlines" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="addressID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="addressID" columns="addressID" ref-table="addresses" ref-schema="" ref-catalog="low_cost_airlines" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="from" table="flights" schema="" catalog="low_cost_airlines" columns="from"/>
+      <exported-key name="to" table="flights" schema="" catalog="low_cost_airlines" columns="to"/>
+    </table>
+    <table name="flights" schema="" catalog="low_cost_airlines" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="from" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="to" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="arrival" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="departure" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="from" columns="from" ref-table="airports" ref-schema="" ref-catalog="low_cost_airlines" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="to" columns="to" ref-table="airports" ref-schema="" ref-catalog="low_cost_airlines" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="flight" table="reservations" schema="" catalog="low_cost_airlines" columns="flightID"/>
+    </table>
+    <table name="reservations" schema="" catalog="low_cost_airlines" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="userID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="flightID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="luggage" sqlType="CHAR" precision="50" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="flight" columns="flightID" ref-table="flights" ref-schema="" ref-catalog="low_cost_airlines" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user" columns="userID" ref-table="users" ref-schema="" ref-catalog="low_cost_airlines" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="flight" unique="false" columns="flightID"/>
+      <index name="user" unique="false" columns="userID"/>
+    </table>
+    <table name="users" schema="" catalog="low_cost_airlines" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="login" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="surname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user" table="reservations" schema="" catalog="low_cost_airlines" columns="userID"/>
+    </table>
+  </data-source>
+</component>

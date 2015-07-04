@@ -1,0 +1,109 @@
+.col1, .col2, .col3, .cols {
+    float: left
+}
+
+.col1 {
+    width: 346px;
+    background: #f4f4f4;
+    height: 100%
+}
+
+.col2 {
+    width: 544px
+}
+
+.cols {
+    width: 280px
+}
+
+/* index.html */
+
+body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#footer{
+    background: url(/resources/images/bg_top.jpg) top center no-repeat #1e2023
+    height:20%; /*random number*/
+}
+
+#page1 h1 {
+    padding-top: 12px
+}
+
+.logging {
+    width: 110px;
+    padding-left: 0;
+}
+
+#top_nav li {
+    margin: 0 10px 0 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#top_nav {
+    float: right;
+    padding-top: 7px
+}
+
+#menu {
+    padding-top: 12px
+}
+
+.header {
+    height: 40px
+}
+
+#page1 #banner {
+    background: url(/resources/images/bg_img.jpg) 0 0 no-repeat;
+    height: 320px;
+    padding: 38px 0 0 60px
+}
+
+/* index-1.html */
+#page2 .cols {
+    width: 249px
+}
+
+/* index-2.html */
+#page3 .cols {
+    width: 249px
+}
+
+/* index-3.html */
+/* index-4.html */
+#page5 .cols {
+    width: 80px
+}
+
+#tableOfFlights{
+    margin-right: 0;
+}
+
+#tableOfFlights {
+    alignment: right;
+    color: #333; /* Lighten up font color */
+    font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+    border-collapse:
+    collapse; border-spacing: 0;
+}
+
+#tableOfFlights td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+#tableOfFlights th {
+    background: #F3F3F3; /* Light grey background */
+    font-weight: bold; /* Make sure they're bold */
+}
+
+#tableOfFlights td {
+    background: #FAFAFA; /* Lighter grey background */
+    text-align: center; /* Center our text */
+}
+
+/* index-5.html */
+/* index-6.html */
